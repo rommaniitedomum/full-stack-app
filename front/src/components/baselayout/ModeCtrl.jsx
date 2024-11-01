@@ -1,8 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Icons } from "../../assets/icons";
 
 const ModeCtrl = () => {
   const [darkMode, setDarkMode] = useState(true);
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+      document.documentElement.style.setProperty("color-scheme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      document.documentElement.style.setProperty("color-scheme", "light");
+    }
+  }, [darkMode]);
 
   const toggleTheme = () => {
     setDarkMode(!darkMode);
