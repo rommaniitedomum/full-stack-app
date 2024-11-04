@@ -49,7 +49,7 @@ const Visitors = () => {
     dispatch(fetchVisitors());
   }, [dispatch]); // dispatch가 변경될 때 한번 실행
 
-  console.log(state);
+  // console.log(state);
   return (
     <div className="block-wrap">
       <HeadTitle title="Visitors Insights" />

@@ -47,7 +47,7 @@ const AppbarLang = () => {
     fetchCountriesData();
   }, []);
 
-  console.log(selectedCountry);
+  // console.log(selectedCountry);
 
   const img =
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRV__R8jucWpeB3Vy2oGD3lqG50N-2iXKhasQ&s";
