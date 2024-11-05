@@ -1,6 +1,7 @@
 import {
   GET_VISITORS_API_URL,
   GET_REVENUE_API_URL,
+  GET_CUSTOMERS_API_URL,
 } from "../../constants/apiURL";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { getRequest } from "../../constants/requestMethods";
@@ -32,6 +33,11 @@ export const fetchRevenue = createFetchThunk(
   GET_REVENUE_API_URL // 요청 url
 );
 
+export const fetchCustomer = createFetchThunk(
+  "fetchCustomer", // action type
+  GET_CUSTOMERS_API_URL // 요청 url
+);
+
 // handlefulfilled 함수 정의 : 요청성공시 상태 업데이트 로직을 별도 함수로 분리
 
 const handleFulfilled = (stateKey) => (state, action) => {
@@ -49,13 +55,16 @@ const apiSlice = createSlice({
     // 초기상태
     visitorsData: null,
     revenueData: null,
+    customersData: null,
   },
   extraReducers: (builder) => {
     builder
       .addCase(fetchVisitors.fulfilled, handleFulfilled("visitorsData"))
       .addCase(fetchVisitors.rejected, handleRejected)
       .addCase(fetchRevenue.fulfilled, handleFulfilled("revenueData"))
-      .addCase(fetchRevenue.rejected, handleRejected);
+      .addCase(fetchRevenue.rejected, handleRejected)
+      .addCase(fetchCustomer.fulfilled, handleFulfilled("customersData"))
+      .addCase(fetchCustomer.rejected, handleRejected);
   },
 }); // slice 객체 저장
 

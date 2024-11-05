@@ -5,7 +5,6 @@ import HeadTitle from "./HeadTitle";
 import {
   BarChart,
   Bar,
-  Rectangle,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -19,14 +18,12 @@ const formatYAxisLabel = (value) => `${value}k`;
 const formatTooltipValue = (value) => `${value} Sales`;
 
 const TotalRevenue = () => {
-  const state = useSelector((state) => state.apis.revenueData);
-  const dispatch = useDispatch();
+  const state = useSelector((state) => state.apis.revenueData); // 인터페이스로 레비뉴 데이터 보여줌
+  const dispatch = useDispatch(); // dispatch 함수를 사용함 오늘한거복습
 
   useEffect(() => {
-    dispatch(fetchRevenue());
+    dispatch(fetchRevenue()); // revenue 가저옴
   }, [dispatch]); // dispatch가 변경될 때 한번 실행
-
-  console.log(state);
 
   return (
     <div className="block-wrap mt-[14px]">

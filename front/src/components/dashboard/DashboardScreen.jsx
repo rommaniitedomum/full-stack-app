@@ -2,6 +2,7 @@ import React from "react";
 import Visitors from "./Visitors";
 import Sales from "./Sales";
 import TotalRevenue from "./TotalRevenue";
+import Customers from "./Customers";
 
 const DashboardScreen = () => {
   return (
@@ -12,6 +13,7 @@ const DashboardScreen = () => {
       </div>
       <div className="area-row are-two grid grid-cols-[3fr_2fr_2fr]">
         <TotalRevenue />
+        <Customers />
       </div>
     </div>
   );
