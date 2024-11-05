@@ -7,6 +7,7 @@ const GET_VISITORS_API_URL = `${DOMAIN}/visitors`;
 const GET_REVENUE_API_URL = `${DOMAIN}/revenue`;
 const GET_CUSTOMERS_API_URL = `${DOMAIN}/customers`;
 const GET_TARGET_REALITY_API_URL = `${DOMAIN}/targetReality`;
+const GET_TOP_PRODUCTS_API_URL = `${DOMAIN}/topProducts`;
 
 export {
   COUNTRIES_API_URL,
@@ -14,6 +15,7 @@ export {
   GET_REVENUE_API_URL,
   GET_CUSTOMERS_API_URL,
   GET_TARGET_REALITY_API_URL,
+  GET_TOP_PRODUCTS_API_URL,
 };
 
 // 도메인을 상수로 선언하고 visitor 에서 참조한다

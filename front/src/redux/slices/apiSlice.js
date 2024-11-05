@@ -3,6 +3,7 @@ import {
   GET_REVENUE_API_URL,
   GET_CUSTOMERS_API_URL,
   GET_TARGET_REALITY_API_URL,
+  GET_TOP_PRODUCTS_API_URL,
 } from "../../constants/apiURL";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { getRequest } from "../../constants/requestMethods";
@@ -44,6 +45,11 @@ export const fetchTargetReality = createFetchThunk(
   GET_TARGET_REALITY_API_URL // 요청 url
 );
 
+export const fetchTopProducts = createFetchThunk(
+  "fetchTopProducts", // action type
+  GET_TOP_PRODUCTS_API_URL // 요청 url
+);
+
 // handlefulfilled 함수 정의 : 요청성공시 상태 업데이트 로직을 별도 함수로 분리
 
 const handleFulfilled = (stateKey) => (state, action) => {
@@ -63,6 +69,7 @@ const apiSlice = createSlice({
     revenueData: null,
     customersData: null,
     targetRealityData: null,
+    topProductsData: null,
   },
   extraReducers: (builder) => {
     builder
@@ -76,7 +83,9 @@ const apiSlice = createSlice({
         fetchTargetReality.fulfilled,
         handleFulfilled("targetRealityData")
       )
-      .addCase(fetchTargetReality.rejected, handleRejected);
+      .addCase(fetchTargetReality.rejected, handleRejected)
+      .addCase(fetchTopProducts.fulfilled, handleFulfilled("topProductsData"))
+      .addCase(fetchTopProducts.rejected, handleRejected);
   },
 }); // slice 객체 저장
 

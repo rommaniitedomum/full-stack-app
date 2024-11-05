@@ -13,7 +13,7 @@ const TargetReality = () => {
   useEffect(() => {
     dispatch(fetchTargetReality()); // revenue 가저옴
   }, [dispatch]);
-  console.log(state);
+  // console.log(state);
   return (
     <div className="block-wrap mt-[14px] ml-[14px]">
       <HeadTitle title="Target Vs Reality" />
@@ -57,7 +57,7 @@ const TargetReality = () => {
         </ResponsiveContainer>
       </div>
       <div className="block-foot">
-        <div className="legend-info mt-4 flex flex-col gap-2">
+        <div className="legend-info mt-4 flex flex-col ">
           {TARGET_REALITY_LISTS.map((item, index) => (
             <div key={index} className="flex items-center justify-between">
               <div className="info-item-left flex items-center gap-2.5">
