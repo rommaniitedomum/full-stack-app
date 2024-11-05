@@ -11,6 +11,34 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
+import { PropTypes } from "prop-types";
+
+const CustomToolTip = ({ payload }) => {
+  if (!payload || !payload.length) return null;
+
+  return (
+    <div className="custom-recharts-tooltip">
+      <p className="recharts-tooltip-label text-gray-500 text-sm">
+        {payload[0].payload?.month}
+      </p>
+
+      <ul className="recharts-tooltip-item-list">
+        {payload?.map((item, index) => {
+          return (
+            <li key={index}>
+              {item.name}/{item.value}
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
+};
+
+CustomToolTip.propTypes = {
+  payload: PropTypes.any,
+};
+
 const Customers = () => {
   const state = useSelector((state) => state.apis.customersData); // 인터페이스로 레비뉴 데이터 보여줌
   const dispatch = useDispatch(); // dispatch 함수를 사용함 오늘한거복습
@@ -20,6 +48,25 @@ const Customers = () => {
   }, [dispatch]); // dispatch가 변경될 때 한번 실행
 
   console.log(state);
+
+  const formatLegendValue = (value, name) => {
+    const initialValue = 0;
+    const totalValue = state.reduce((acc, cur) => {
+      if (Object.keys(cur).includes(name.dataKey)) {
+        return acc + cur[name.dataKey]; //있으면 acc (accumulator 누산기 최종값) 데이터 더함 여기코드 복습
+      } else {
+        return acc;
+      }
+    }, initialValue); //초기값 지정
+    return (
+      <span className="custom-legend-item-text-group">
+        <span className="custom-legend-item-text">
+          {value.replace("_", " ")}
+        </span>
+        <span className="custom-legend-item-text">{" " + totalValue}</span>
+      </span>
+    );
+  };
 
   return (
     <div className="customers-chart block-wrap mt-[14px] ml-[14px]">
@@ -36,8 +83,8 @@ const Customers = () => {
               left: 0,
               bottom: 0,
             }}>
-            <Legend />
-            <Tooltip />
+            <Legend formatter={formatLegendValue} />
+            <Tooltip content={<CustomToolTip />} />
             <defs>
               <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="5%" stopColor="#0095ff" stopOpacity={0.8} />
