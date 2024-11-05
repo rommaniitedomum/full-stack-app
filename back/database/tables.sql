@@ -81,13 +81,13 @@ VALUES
 CREATE TABLE top_products(
   id SERIAL PRIMARY KEY NOT NULL,
   name VARCHAR(30) NOT NULL,
-  papularityPercent INTEGER NOT NULL,
+  popularityPercent INTEGER NOT NULL,
   salesPercent INTEGER NOT NULL,
   create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
   update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
 )
 
-INSERT INTO top_products (name, papularityPercent, salesPercent) 
+INSERT INTO top_products (name, popularityPercent, salesPercent) 
 VALUES 
 ('Home Decor Range', 70, 45),
 ('Disney Princess Pink Bag 18', 60, 29),

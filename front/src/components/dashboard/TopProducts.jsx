@@ -36,10 +36,16 @@ const TopProducts = () => {
                   rounded-full overflow-hidden relative">
                     <div
                       className="bar-fill bg-[#0095ff] absolute left-0 top-0 rounded-full h-full"
-                      style={{ width: `${item.papularitypercent}%` }}></div>
+                      style={{ width: `${item.popularitypercent}%` }}></div>
                   </div>
                 </td>
-                <td className="tbl-data">{item.salespercent}</td>
+                <td className="tbl-data">
+                  <div
+                    className="bg-[#f0f9ff] text-[#0095ff] flex items-center justify-center
+                  border border-[#0095ff] rounded-md min-w-[45px] h-6 text-[0.625rem]">
+                    {item.salespercent}%
+                  </div>
+                </td>
               </tr>
             ))}
           </tbody>
