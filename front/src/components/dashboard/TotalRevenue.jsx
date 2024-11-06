@@ -26,7 +26,7 @@ const TotalRevenue = () => {
   }, [dispatch]); // dispatch가 변경될 때 한번 실행
 
   return (
-    <div className="block-wrap mt-[14px]">
+    <div className="block-wrap mt-[14px] w-[calc(50%-7px)] lg:w-auto">
       <HeadTitle title="Total Revenue" />
 
       <div className="bar-chart w-full h-[250px] mt-6">

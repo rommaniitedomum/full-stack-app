@@ -25,16 +25,16 @@ const VolumeServices = () => {
     return (
       <span className="custom-legend-item-text-group flex items-center gap-[5px]">
         <span className="custom-legend-item-text">{name}</span>
-        <span
-          className="custom-legend-item-text text-xs text-[#151d48]
-        dark:text-gray-300 font-medium">
+        <span className="custom-legend-item-text text-xs text-[#151d48] dark:text-gray-300 font-medium">
           {totalValue}
         </span>
       </span>
     );
   };
   return (
-    <div className="block-wrap ml-[14px] my-[14px]">
+    <div
+      className="block-wrap sm:ml-[14px] sm:mt-0  mt-[14px] lg:my-[14px] sm:w-[calc(50%-7px)]
+            lg:w-auto w-full ">
       <HeadTitle title="Volume vs Services Level" />
       <div className="stacked-bar-chart w-full h-[250px] mb-5">
         <ResponsiveContainer width="100%" height="100%">
