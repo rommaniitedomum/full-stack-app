@@ -51,7 +51,7 @@ const Customers = () => {
 
   const formatLegendValue = (value, name) => {
     const initialValue = 0;
-    const totalValue = state.reduce((acc, cur) => {
+    const totalValue = state?.reduce((acc, cur) => {
       if (Object.keys(cur).includes(name.dataKey)) {
         return acc + cur[name.dataKey]; //있으면 acc (accumulator 누산기 최종값) 데이터 더함 여기코드 복습
       } else {
