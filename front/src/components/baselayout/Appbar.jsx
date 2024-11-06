@@ -26,7 +26,7 @@ const Appbar = () => {
           </button>
           <h3 className="appbar-title text-xl font-semibold">Dashboard</h3>
         </div>
-        <div className="appbar-right flex items-center">
+        <div className="appbar-right flex items-center gap-4">
           <div className="appbar-search ">
             <form>
               <div
@@ -40,7 +40,7 @@ const Appbar = () => {
                   placeholder="Search here..."
                   className="border-none outline-0 lg:text-[15px] text-[12px]
                  bg-gray-300 dark:bg-gray-700 text-gray-950 dark:text-white px-3
-                placeholder-gray-800 dark:placeholder-white w-[70px] sm:w-auto"
+                placeholder-gray-800 dark:placeholder-white w-[70px] sm:w-full"
                 />
               </div>
             </form>
